@@ -1,4 +1,4 @@
-/* Leetcode - Count Numbers with Unique Digits (C++ language) - Medium */
+/* Leetcode - 357. Count Numbers with Unique Digits (C++ language) - Medium */
 
 #include <iostream>
 #include <vector>
@@ -16,7 +16,7 @@ int main()
 {   
     yellow();
 
-    cout << "Leetcode - Count Numbers with Unique Digits (C++ language) - Medium" << endl;
+    cout << "Leetcode - 357. Count Numbers with Unique Digits (C++ language) - Medium" << endl;
 
     vector<int> n = {2,0};
     
