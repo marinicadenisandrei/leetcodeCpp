@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -31,14 +30,14 @@ int main()
         reset();
 
         printVector(largestDivisibleSubset(nums[test]));
-
+    
         green();
 
         cout << "Passed" << endl;
     }
-
-    reset();
     
+    reset();
+
     return 0;
 }
 
@@ -54,45 +53,39 @@ vector<int> largestDivisibleSubset(vector<int> numsVar)
 {
     vector<int> result = {};
 
-    for (int i = numsVar.size() - 1; i >= 1; i--)
+    for (int i = 0; i < numsVar.size() - 1; i++)
     {
-        vector<int> tempVector = {};
-        tempVector.push_back(numsVar[i]);
-        int temp = numsVar[i];
+        vector<int> temp = {numsVar[i]};
 
-        for (int j = i - 1; j >= 0; j--)
+        for (int j = i + 1; j < numsVar.size(); j++)
         {
-            if (temp % numsVar[j] == 0)
+            if (numsVar[j] % temp[temp.size() - 1] == 0)
             {
-                temp = numsVar[j];
-                tempVector.push_back(temp);
+                temp.push_back(numsVar[j]);
             }
         }
 
-
-        if (result.size() < tempVector.size())
+        if (result.size() < temp.size())
         {
-            result = tempVector;
+            result = temp;
         }
     }
-
-    std::sort(result.begin(), result.end());
 
     return result;
 }
 
 void reset () {
-    cout << "\033[1;0m";
+  printf("\033[1;0m");
 }
 
 void green () {
-    cout << "\033[1;32m";
+  printf("\033[1;32m");
 }
 
 void yellow () {
-    cout << "\033[1;33m";
+  printf("\033[1;33m");
 }
 
 void red () {
-    cout << "\033[1;31m";
+  printf("\033[1;31m");
 }
